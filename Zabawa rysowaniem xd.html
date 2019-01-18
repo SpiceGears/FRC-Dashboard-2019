@@ -2,13 +2,27 @@
 <html>
 <head>
 	
-	<link rel="stylesheet" href="style/style.css" type="text/css" />
+	<style>
+	
+	body{
+		
+		
+		
+	}
+	
+	svg * {
+		stroke: white;
+		fill: #323232;
+		stroke-width: 2;
+	}
+		
+	</style>
 	
 	
 	
 	
 </head>
-<body>
+<body onload="avici()">
 	
 	
 	
@@ -46,9 +60,6 @@
 	
 	<div>
 		
-		<!-- <span>Wprowadź m: </span><span id="m"></span> -->
-		<!-- <center><input type="range" min="233" max="433" size="200" style="width:99%;" value="233" class="slider-square" id="suwak"></center> -->
-		
 		<input type="button" value="+" onclick="elevatorUP()">
 		<input type="button" value="-" onclick="elevatorDown()">
 		
@@ -58,35 +69,28 @@
 		
 		function avici(){
 			
-			if()
+			if(433+point < 438 && 433+point > 423) lvl1.style.fill = "green";
+				else lvl1.style.fill = "red";
+			if(433+point < 338 && 433+point > 323) lvl2.style.fill = "green";
+				else lvl2.style.fill = "red";
+			if(433+point < 238 && 433+point > 223) lvl3.style.fill = "green";
+				else lvl3.style.fill = "red";
 			
 		}
 		
 		var point=0;
-		var up;
-		var down;
 		
 		function elevatorUP(){
-			point-= 10;
+			point-= 2;
 			elevator.style.transform = ('translate(0px, ' + point + 'px)');
 			avici();
 		}
 		function elevatorDown(){
 		
-			point+= 10;
+			point+= 2;
 			elevator.style.transform = ('translate(0px, ' + point + 'px)');
 			avici();
 		}
-		
-		<!-- var slide = document.getElementById("suwak"); -->
-		<!-- var y = document.getElementById("m"); -->
-		<!-- y.innerHTML = slide.value -->
-		
-		<!-- slide.oninput = function() { -->
-			<!-- y.innerHTML = this.value; -->
-			<!-- elevatorUP(); -->
-		<!-- } -->
-		
 	</script>
 	
 </body>

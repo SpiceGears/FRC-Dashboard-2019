@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<link rel="stylesheet" href="style/style.css" type="text/css" />
+	
+	
+	
+	
+</head>
+<body>
+	
+	<div>
+		
+		<span>Wprowadź m: </span><span id="m"></span>
+		<center><input type="range" min="233" max="433" size="500" style="width:99%;" value="433" class="slider-square" id="suwak"></center>
+		
+	</div>
+	
+	<script>
+		var slide = document.getElementById("suwak");
+		var y = document.getElementById("m");
+		y.innerHTML = slide.value
+		
+		slide.oninput = function() {
+			elevator.y = this.value;
+		}
+		
+	</script>
+	
+	<svg id="robot" width="470" height="506">
+		
+		<circle cx="277.5" cy="474" r="20" />
+		<circle cx="235" cy="474" r="20" />
+		<circle cx="192.5" cy="474" r="20" />
+		<rect x="150" y="463" width="170" height="22" />
+		
+		<rect x="203.75" y="153" width="20" height="332" /> 
+		
+		<rect x="103" y="433" width="100" height="20" id="elevator"/>
+		
+		<rect x="0" y="423" width="90" height="40" />
+		<rect x="90" y="433" width="13" height="20" />
+		
+		<rect x="0" y="323" width="90" height="40" />
+		<rect x="90" y="333" width="13" height="20" />
+		
+		<rect x="0" y="223" width="90" height="40" />
+		<rect x="90" y="233" width="13" height="20" />
+		
+	</svg>
+	
+</body>
+</html>

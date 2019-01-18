@@ -45,3 +45,23 @@ body{
 #Variables{width: 400px; height: 506px;}
 
 #Robot{width: 470px; height: 506px;}
+
+
+
+
+
+
+/*Do zabawy robotem*/
+
+svg * {
+    stroke: white;
+    fill: #323232;
+    stroke-width: 2;
+}
+
+
+
+
+
+
+

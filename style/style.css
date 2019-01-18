@@ -57,7 +57,10 @@ svg * {
     stroke-width: 2;
 }
 
-
+#gyro-point{
+	
+	fill: black;
+}
 
 
 

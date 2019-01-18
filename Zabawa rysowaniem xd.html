@@ -10,23 +10,7 @@
 </head>
 <body>
 	
-	<div>
-		
-		<span>Wprowadź m: </span><span id="m"></span>
-		<center><input type="range" min="233" max="433" size="500" style="width:99%;" value="433" class="slider-square" id="suwak"></center>
-		
-	</div>
 	
-	<script>
-		var slide = document.getElementById("suwak");
-		var y = document.getElementById("m");
-		y.innerHTML = slide.value
-		
-		slide.oninput = function() {
-			elevator.y = this.value;
-		}
-		
-	</script>
 	
 	<svg id="robot" width="470" height="506">
 		
@@ -39,16 +23,71 @@
 		
 		<rect x="103" y="433" width="100" height="20" id="elevator"/>
 		
-		<rect x="0" y="423" width="90" height="40" />
+		<rect x="0" y="423" width="90" height="40" id="lvl1" />
 		<rect x="90" y="433" width="13" height="20" />
 		
-		<rect x="0" y="323" width="90" height="40" />
+		<rect x="0" y="323" width="90" height="40" id="lvl2" />
 		<rect x="90" y="333" width="13" height="20" />
 		
-		<rect x="0" y="223" width="90" height="40" />
+		<rect x="0" y="223" width="90" height="40" id="lvl3" />
 		<rect x="90" y="233" width="13" height="20" />
 		
 	</svg>
+	
+	<script>
+	
+	
+	function elevatorUP(){
+		
+		elevator.style.transform = ('translate(103px,' + y.innerHTML +'px)')
+		
+	}
+	</script>
+	
+	<div>
+		
+		<!-- <span>Wprowadź m: </span><span id="m"></span> -->
+		<!-- <center><input type="range" min="233" max="433" size="200" style="width:99%;" value="233" class="slider-square" id="suwak"></center> -->
+		
+		<input type="button" value="+" onclick="elevatorUP()">
+		<input type="button" value="-" onclick="elevatorDown()">
+		
+	</div>
+	
+	<script>
+		
+		function avici(){
+			
+			if()
+			
+		}
+		
+		var point=0;
+		var up;
+		var down;
+		
+		function elevatorUP(){
+			point-= 10;
+			elevator.style.transform = ('translate(0px, ' + point + 'px)');
+			avici();
+		}
+		function elevatorDown(){
+		
+			point+= 10;
+			elevator.style.transform = ('translate(0px, ' + point + 'px)');
+			avici();
+		}
+		
+		<!-- var slide = document.getElementById("suwak"); -->
+		<!-- var y = document.getElementById("m"); -->
+		<!-- y.innerHTML = slide.value -->
+		
+		<!-- slide.oninput = function() { -->
+			<!-- y.innerHTML = this.value; -->
+			<!-- elevatorUP(); -->
+		<!-- } -->
+		
+	</script>
 	
 </body>
 </html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	
+	<link rel="stylesheet" href="style/style.css" type="text/css" />
+	
+	<script>
+		var ProgressBar = require('progressbar.js')
+		var line = new ProgressBar.Line('Camera');
+
+		
+	</script>
+	
+</head>
+<body>
+	
+	<div id="Container">
+		
+		<div class="Divider"> <!-- Górna część -->
+			
+			<div id="Timer">
+				<span id="timer">TIMER 'beeb boob'</span>
+			</div>
+			
+			<div id="RobotStatus">
+				<span>Robot Status:</span>
+				<span id="robotstatus" style="color: purple;">Disabled</span>
+			</div>
+			
+		</div>
+		
+		<div class="NonDivider"></div>
+		
+		<div class="Side"> <!-- Lewa strona  -->
+			
+			<div id="Camera">		<!-- Kamera -->
+				
+				
+				
+			</div>
+			
+			<div id="ButtonWykresy"> <!-- Przycisk do Wykresów -->
+				
+				<input type="button" value="Wykresy" style="width:71px; height: 346px;"/>
+				
+			</div>
+			
+			<div id="Usage">		<!-- Zużcie Baterii UPC RAM -->
+				
+				
+			</div>
+			
+		</div>
+		<div class="Side"> <!-- Prawa strona -->
+			
+			<div class="Divider"> <!-- Góra -->
+					
+				<div id="Gyro"> <!-- Żyroskop -->
+					<svg id="robot-gyro" width="600" height="600">
+					<g transform="matrix(1 0 0 -1 100 100)">
+						<rect x="0"  y="0"  width="4" height="30"  transform=" translate(-2 60) rotate(0)" />
+						<rect x="0"  y="0"  width="4" height="30"  transform=" translate(-2 60) rotate(-90 2 -60)" />
+						<rect x="0"  y="0"  width="4" height="30"  transform=" translate(-2 60) rotate(90 2 -60)" />
+						<rect x="0"  y="0"  width="4" height="30"  transform=" translate(-2 60) rotate(180 2 -60)" />
+						<rect x="0"  y="0"  width="4" height="20"  transform=" translate(-2 60) rotate(45 2 -60)" />
+						<rect x="0"  y="0"  width="4" height="20"  transform=" translate(-2 60) rotate(-135 2 -60)" />
+						<rect x="0"  y="0"  width="4" height="20"  transform=" translate(-2 60) rotate(-45 2 -60)" />
+						<rect x="0"  y="0"  width="4" height="20"  transform=" translate(-2 60) rotate(135 2 -60)" />
+						
+						<rect x="0"  y="0"  width="4" height="20"  transform=" translate(-2 60) rotate(-67.5 2 -60)" />
+						<rect x="0"  y="0"  width="4" height="20"  transform=" translate(-2 60) rotate(-22.5 2 -60)" />
+						<rect x="0"  y="0"  width="4" height="20"  transform=" translate(-2 60) rotate(22.5 2 -60)" />
+						<rect x="0"  y="0"  width="4" height="20"  transform=" translate(-2 60) rotate(67.5 2 -60)" />
+						<rect x="0"  y="0"  width="4" height="20"  transform=" translate(-2 60) rotate(112.5 2 -60)" />
+						<rect x="0"  y="0"  width="4" height="20"  transform=" translate(-2 60) rotate(-112.5 2 -60)" />
+						<rect x="0"  y="0"  width="4" height="20"  transform=" translate(-2 60) rotate(-157.5 2 -60)" />
+						<rect x="0"  y="0"  width="4" height="20"  transform=" translate(-2 60) rotate(157.5 2 -60)" />
+						
+						
+					</g>	
+						<rect x="90" y="100" rx="30" ry="10" width="20" height="70" />
+						<rect x="90" y="30" width="20" rx="30" ry="10" height="70" />
+						<circle cx="100" cy="100" r="18" stroke="black" fill="black"></circle>
+						
+					
+					</svg>
+				</div>
+				<div id="Autonomus"> <!-- Tryb automatyki -->
+					
+					
+					
+				</div>
+			</div>
+			
+			<div class="Divider"> <!-- Dół -->
+			
+				<div id="Variables"> <!-- Zmienne -->
+					
+					
+					
+				</div>
+				
+				<div id="Robot"> <!-- Model robota -->
+					
+					
+					
+				</div>
+			</div>
+		</div>
+		
+		<div class="NonDivider"></div>
+	</div>
+	
+</body>
+</html>

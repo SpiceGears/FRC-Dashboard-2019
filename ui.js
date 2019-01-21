@@ -13,6 +13,8 @@ var ui = {
         number: document.getElementById('')
     },
 	
+	arm-position: document.getElementById('point'),
+	
 	battery: document.getElementById(''),
 	
 	rioCPUuse: document.getElementById(''),
@@ -56,6 +58,13 @@ NetworkTables.addKeyListener('/SmartDashboard/RPRed', (key, value) => {
 NetworkTables.addKeyListener('/SmartDashboard/RPBlue', (key, value) => {
     ui.RPBlue.innerHTML = value;
 });
+
+NetworkTables.addKeyListener('SmartDashboard/elevatorSpeed',(key, value) => {
+	ui.arm-position.innerHTML = value*100 + 100;
+	
+	// raczej nie zadziała ale kto wie
+	
+}
 
 NetworkTables.addKeyListener(''), (key, value) => {
 	ui.gyro.val = value;

@@ -42,7 +42,7 @@
 			
 			<div id="ButtonWykresy"> <!-- Przycisk do Wykresów -->
 				
-				<input type="button" value="Wykresy" style="width:71px; height: 346px;"/>
+				<input type="button" class="button" value="Wykresy" style="width:71px; height: 346px;"/>
 				
 			</div>
 			
@@ -91,44 +91,55 @@
 				</div>
 				<div id="Autonomus"> <!-- Tryb automatyki -->
 					
-					
+					<div id="Button">
+						
+						<div class="ButtonSpace">
+							<input type="Button" class="button" style="width:150px; height: 100px;" value="Path A" />
+						</div>
+						<div class="ButtonSpace">
+							<input type="Button" class="button" style="width:150px; height: 100px;" value="Path B" />
+						</div>
+						<div class="ButtonSpace">
+							<input type="Button" class="button" style="width:150px; height: 100px;" value="Path C" />
+						</div>
+						
+					</div>
 					
 				</div>
 			</div>
 			
-			<div class="Divider"> <!-- Dół -->
+			<div class="Divider"></div> <!-- Dół -->
 			
-				<div id="Variables"> <!-- Zmienne -->
-					
-					
-					
-				</div>
+			<div id="Variables"> <!-- Zmienne -->
 				
-				<div id="Robot"> <!-- Model robota -->
+				
+				
+			</div>
+			
+			<div id="Robot"> <!-- Model robota -->
+				
+				<svg width="330" height="506">
 					
-					<svg width="470" height="506">
-						
-						<circle cx="180" cy="447" r="20"/>
-						<circle cx="226" cy="447" r="20"/>
-						<circle cx="272" cy="447" r="20"/>
-						<rect x="140" y="436" width="172" height="22" />
-						
-						<rect x="193" y="126" width="20" height="332" />
-						
-						<rect x="113" y="406" width="100" height="20" id="elevator"/>
-						
-						<rect x="10" y="396" width="90" height="40" id="lvl1" />
-						<rect x="100" y="406" width="13" height="20" />
-						
-						<rect x="10" y="296" width="90" height="40" id="lvl2" />
-						<rect x="100" y="306" width="13" height="20" />
-						
-						<rect x="10" y="196" width="90" height="40" id="lvl3" />
-						<rect x="100" y="206" width="13" height="20" />
-						
-					</svg>
+					<circle cx="180" cy="447" r="20"/>
+					<circle cx="226" cy="447" r="20"/>
+					<circle cx="272" cy="447" r="20"/>
+					<rect x="140" y="436" width="172" height="22" />
 					
-				</div>
+					<rect x="193" y="126" width="20" height="332" />
+					
+					<rect x="113" y="406" width="100" height="20" id="elevator"/>
+					
+					<rect x="10" y="396" width="90" height="40" id="lvl1" />
+					<rect x="100" y="406" width="13" height="20" />
+					
+					<rect x="10" y="296" width="90" height="40" id="lvl2" />
+					<rect x="100" y="306" width="13" height="20" />
+					
+					<rect x="10" y="196" width="90" height="40" id="lvl3" />
+					<rect x="100" y="206" width="13" height="20" />
+					
+				</svg>
+				
 			</div>
 		</div>
 		

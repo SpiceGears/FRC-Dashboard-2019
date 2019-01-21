@@ -60,7 +60,8 @@ NetworkTables.addKeyListener('/SmartDashboard/RPBlue', (key, value) => {
 });
 
 NetworkTables.addKeyListener('SmartDashboard/elevatorSpeed',(key, value) => {
-	ui.arm-position.innerHTML = value*100 + 100;
+	//ui.arm-position.innerHTML = value*100 + 100;
+	
 	
 	// raczej nie zadziała ale kto wie
 	

@@ -32,6 +32,8 @@ body{
 
 .Divider{}
 
+.ButtonSpace{float: left; margin-left: 55px;}
+
 #Camera{width: 480px; height: 360px;} /*484px <- cała lewa strona*/
 
 #ButtonWykresy{} /*75px*/
@@ -41,6 +43,8 @@ body{
 #Gyro{width: 200px; height: 200px;} /*204px*/ /*Cała Prawa strona -> 878px*/
 
 #Autonomus{width: 670px; height: 200px;} /*674px*/
+
+	#Button{margin-top: 50px; width: 670px; hight: 100px;}
 
 #Variables{width: 540px; height: 506px;}
 
@@ -69,7 +73,18 @@ svg * {
 	
 }
 
+.button{
+	
+	background-color: #323232;
+	border-color: #212121;
+	border-style: solid;
+	cursor: pointer;
+}
 
-
-
+.button:hover{
+	
+	background-color: #383838;
+	border-color: #282828;
+	
+}
 

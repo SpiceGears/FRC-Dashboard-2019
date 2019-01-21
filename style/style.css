@@ -42,9 +42,9 @@ body{
 
 #Autonomus{width: 670px; height: 200px;} /*674px*/
 
-#Variables{width: 400px; height: 506px;}
+#Variables{width: 540px; height: 506px;}
 
-#Robot{width: 470px; height: 506px;}
+#Robot{width: 330px; height: 506px;}
 
 
 
@@ -55,6 +55,11 @@ svg * {
     stroke: white;
     fill: #323232;
     stroke-width: 2;
+}
+
+#gyro-value{
+	stroke-width: 0.5;
+	font-size: 15px;
 }
 
 .black{

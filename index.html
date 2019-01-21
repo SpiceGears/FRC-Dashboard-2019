@@ -57,7 +57,7 @@
 			<div class="Divider"> <!-- Góra -->
 					
 				<div id="Gyro"> <!-- Żyroskop -->
-					<svg id="robot-gyro" width="600" height="600">
+					<svg width="600" height="600">
 					<g transform="matrix(1 0 0 -1 100 100)">
 						<rect x="0"  y="0"  width="4" height="30"  transform=" translate(-2 60) rotate(0)" />
 						<rect x="0"  y="0"  width="4" height="30"  transform=" translate(-2 60) rotate(-90 2 -60)" />
@@ -78,11 +78,14 @@
 						<rect x="0"  y="0"  width="4" height="20"  transform=" translate(-2 60) rotate(157.5 2 -60)" />
 						
 						
-					</g>	
+					</g>
+					<g id="gyro-arm">
 						<rect x="90" y="100" rx="30" ry="10" width="20" height="70" />
 						<rect x="90" y="30" width="20" rx="30" ry="10" height="70" />
-						<circle cx="100" cy="100" r="18" stroke="black" fill="black"></circle>
-						
+						<circle cx="100" cy="100" r="18" stroke="black" fill="black" />
+					</g>	
+					
+					<text id="gyro-value" x="101" y="104" text-anchor="middle">360*</text>
 					
 					</svg>
 				</div>
@@ -103,7 +106,27 @@
 				
 				<div id="Robot"> <!-- Model robota -->
 					
-					
+					<svg width="470" height="506">
+						
+						<circle cx="180" cy="447" r="20"/>
+						<circle cx="226" cy="447" r="20"/>
+						<circle cx="272" cy="447" r="20"/>
+						<rect x="140" y="436" width="172" height="22" />
+						
+						<rect x="193" y="126" width="20" height="332" />
+						
+						<rect x="113" y="406" width="100" height="20" id="elevator"/>
+						
+						<rect x="10" y="396" width="90" height="40" id="lvl1" />
+						<rect x="100" y="406" width="13" height="20" />
+						
+						<rect x="10" y="296" width="90" height="40" id="lvl2" />
+						<rect x="100" y="306" width="13" height="20" />
+						
+						<rect x="10" y="196" width="90" height="40" id="lvl3" />
+						<rect x="100" y="206" width="13" height="20" />
+						
+					</svg>
 					
 				</div>
 			</div>

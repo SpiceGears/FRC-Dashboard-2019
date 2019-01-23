@@ -1,0 +1,52 @@
+<head>
+	<script src="library/Chart.js"></script>
+	<style>
+		.myChartDiv {
+			max-width: 600px;
+			max-height: 300px;
+		}
+	</style>
+	
+</head>
+<body>
+	<div class="myChartDiv">
+		<canvas id="myChart" width="600" height="300"></canvas>
+	</div>
+	
+<script>
+	
+	
+	
+	var chrt = document.getElementById("myChart").getContext("2d");
+	var myarr = [0, 59, 80, 81, 56, 55, 40];
+	var data = {
+		labels: ["January", "February", "March", "April", "May", "June", "July"], //x-axis
+		datasets: [
+			{
+				label: "My First dataset", //optional
+				fillColor: "rgb(0,0,220)",
+				strokeColor: "rgba(220,0,0,0.8)",
+				highlightFill: "rgba(220,0,0,0.75)",
+				highlightStroke: "rgba(220,220,220,1)",
+				data: [0, 55, 55, 65, 59, 55, 81] // y-axis
+			},
+			{
+				label: "My Second dataset", //optional
+				fillColor: "rgba(220,120,220,0.8)",
+				strokeColor: "rgba(220,120,220,0.8)",
+				highlightFill: "rgba(220,220,220,0.75)",
+				highlightStroke: "rgba(220,220,220,1)",
+				data: myarr
+			}
+		]
+	};
+	
+	//var myFirstChart = new Chart(chrt).Bar(data);
+	var myPieChart = new Chart(chrt,{
+    type: 'line',
+    data: data
+	});
+
+</script>
+	
+</body>

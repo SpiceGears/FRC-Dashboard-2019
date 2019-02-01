@@ -5,48 +5,6 @@
 	<link rel="stylesheet" href="style/style.css" type="text/css" />
 	
 	<script>
-		//var ProgressBar = require('progressbar.js')
-		//var line = new ProgressBar.Line('Camera');
-		
-		function Commit(){ <!-- To prowizorycznie miejsce na wysyłąnie danych do robota -->
-			
-			switch(document.getElementById('VarSelect').value){
-				case 'V': document.getElementById('VValue').innerHTML = document.getElementById('VInput').value;
-				case 'a': document.getElementById('aValue').innerHTML = document.getElementById('aInput').value;
-				case 'P': document.getElementById('PValue').innerHTML = document.getElementById('PInput').value;
-				case 'I': document.getElementById('IValue').innerHTML = document.getElementById('IInput').value;
-				case 'D': document.getElementById('DValue').innerHTML = document.getElementById('DInput').value;
-			}
-			
-		}
-		
-		function filtr(){ <!-- Etap Pokazywania zmiennych (na razie wszysto jest na miejscu) -->
-		
-		document.getElementById('VarBoxV').style.display = "none";
-		document.getElementById('VarBoxa').style.display = "none";
-		document.getElementById('VarBoxP').style.display = "none";
-		document.getElementById('VarBoxI').style.display = "none";
-		document.getElementById('VarBoxD').style.display = "none";
-		
-		
-		}
-	
-		function Selector(){ <!-- wyświetlanie zmiennych -->
-		
-			filtr();
-		
-			switch(document.getElementById('VarSelect').value){
-			
-				case 'V': document.getElementById('VarBoxV').style.display = "inline"; break;
-				case 'a': document.getElementById('VarBoxa').style.display = "inline"; break;
-				case 'P': document.getElementById('VarBoxP').style.display = "inline"; break;
-				case 'I': document.getElementById('VarBoxI').style.display = "inline"; break;
-				case 'D': document.getElementById('VarBoxD').style.display = "inline"; break;
-			
-			}
-			
-		}
-		
 		
 		function TranslateCanvas(){
 			
@@ -195,8 +153,6 @@
 		
 		function OnLoad(){
 		
-			Selector();
-			
 			TranslateCanvas();
 			CavasChange();
 		}
@@ -336,64 +292,12 @@
 			<div id="Variables"> <!-- Zmienne -->
 				
 				<div id="VarCon">
-					<div style="border-bottom: 2px solid #212121; width:270px; float: left;">
-						<select id="VarSelect" onchange="Selector()"> <!-- Tu się wprowadza zmienne, które trzeba wyświetlić/zmienić -->
-							<option>V</option>
-							<option>a</option>
-							<option>P</option>
-							<option>I</option>
-							<option>D</option>
-						</select>
-					</div>
-					<input type="button" class="button" value="Commit" style="padding: 0px; width: 270px; height: 50px; border-top: 0px;" onClick="Commit()">
 					
-					<!-- Tutaj są 3 divy, w których pojawiają się informacje o zmiennych -->
-					
-					<div id="VarBoxV">
-					
-						<div class="VarName"><center>V</center></div>
-						<div class="VarValue"><center><span id="VValue">10</span></center></div>
-						<div class="VarInput"><input id="VInput" value=10 /></div>
-					
-					</div>
-					
-					<div id="VarBoxa">
-					
-						<div class="VarName"><center>a</center></div>
-						<div class="VarValue"><center><span id="aValue">2</span></center></div>
-						<div class="VarInput"><input id="aInput" value=2 /></div>
-					
-					</div>
-					
-					<div id="VarBoxP" >
-					
-						<div class="VarName"><center>P</center></div>
-						<div class="VarValue"><center><span id="PValue">1.314</span></center></div>
-						<div class="VarInput"><input id="PInput" value=1.314 /></div>
-					
-					</div>
-					
-					<div id="VarBoxI">
-					
-						<div class="VarName"><center>I</center></div>
-						<div class="VarValue"><center><span id="IValue">1</span></center></div>
-						<div class="VarInput"><center><input id="IInput" value=1 /></center></div>
-					
-					</div>
-					
-					<div id="VarBoxD">
-					
-						<div class="VarName"><center>D</center></div>
-						<div class="VarValue"><center><span id="DValue">0</span></center></div>
-						<div class="VarInput"><input id="DInput" value=0 /></div>
-					
-					</div>
 					
 					
 				</div>
 				
 				<div id="tuning"> <!-- Do obgadania -->
-					
 					
 					
 					

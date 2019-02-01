@@ -49,20 +49,8 @@ body{
 	#Button{margin-top: 50px; width: 670px; hight: 100px;}
 
 #Variables{width: 540px; height: 506px;}
-	
-	#VarCon{width: 540px; height: 156px;  border-bottom: 2px solid #212121;}
-		
-		#VarSelect{width: 270px; height: 48px; border-width: 0px 0px 0px 0px}
-		
-		.VarBox{}
-		
-			.VarName{width: 222px; background-color: #424242;  line-height: 4;}
-			
-			.VarValue{width: 222px;  line-height: 4; border-left: 2px solid #212121; border-right: 2px solid #212121;}
-			
-			.VarInput{width: 90px; background-color: #424242; border-right: 2px solid #212121;}
 
-.VarName, .VarValue, .VarInput {height: 104px; font-family: "Lucida Console", Monaco, monospace; font-size: 24px; border-top: 2px solid #212121;}
+	#tuning{}
 
 #JeszczeNieWiadomoCo{width: 540px; height: 352px; border-top: 2px solid #212121;}
 

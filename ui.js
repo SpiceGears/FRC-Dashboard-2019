@@ -51,7 +51,7 @@ function onValueChanged(key,value,isNew) {
 	}
 	
 	switch(key) {
-		case '/SmartDashboard/value1':
+		case '/SmartDashboard/gyro':
 			ui.testdiv1.innerHTML = value;
 			break;
 		case '/SmartDashboard/value2':

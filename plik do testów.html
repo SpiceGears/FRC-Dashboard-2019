@@ -1,0 +1,80 @@
+﻿<head>
+	<script src="library/chart/chart.js/dist/Chart.js"></script>
+	
+</head>
+<body>
+	
+		<div id="Div1" style="float:left; width: 500px; overflow:auto; border: 2px solid black;">
+			<canvas id="myChart" width="1000" height="250"></canvas>
+		</div>
+		
+		
+		<button id="button1" onclick="addData(myPieChart,5,50)">przycisk</button>
+	
+<script>
+	
+	var number = 20;
+	var labelsX = [20];
+	
+	for(var i = 0; i < 20 ;i++) {
+		labelsX[i] = 40
+		console.log("XD");
+	}
+	console.log("XD");
+	
+	var x = 0;
+	var chrt = document.getElementById("myChart").getContext("2d");
+	var data = {
+		labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20], //x-axis
+		datasets: [
+			{
+				label: "right motor speed", //optional
+				backgroundColor: 'rgba(5, 100, 200, 0.6)',
+				data: labelsX // y-axis
+			},
+			{
+				label: "left motor speed", //optional
+				backgroundColor: 'rgba(5, 220, 100, 0.6)',
+				data: [0, 55, 55, 65, 59, 55, 81, 55, 55, 65, 59, 55, 81, 81, 55, 55, 65, 59, 81, 55] // y-axis
+			},
+		]
+	};
+	
+	var options = {
+    responsive: false,
+    maintainAspectRatio: false,
+    scales: {
+        yAxes: [{
+            ticks: {
+                beginAtZero:true
+            }
+        }]
+    }
+}
+	
+	var myPieChart = new Chart(chrt,{
+    type: 'line',
+    data: data,
+	options: options,
+	});
+
+function addData(chart, label, data) {
+	chart.data.labels.splice(0, 1); // remove first label
+    chart.data.datasets.forEach(function(dataset) {
+        dataset.data.splice(0, 1); // remove first data point
+    });
+	chart.update();
+	
+	chart.data.labels.push(label);
+    chart.data.datasets.forEach((dataset) => {
+        dataset.data.push(data);
+    });
+    chart.update();
+	
+}
+
+
+
+</script>
+	
+</body>

@@ -1,52 +1,44 @@
 <head>
-	<script src="library/Chart.js"></script>
-	<style>
-		.myChartDiv {
-			max-width: 600px;
-			max-height: 300px;
-		}
-	</style>
+	<script src="library/chart/chart.js/dist/Chart.js"></script>
+	<script src="networktables/networktables.js"></script>
+	<script src="chart.js"></script>
 	
 </head>
-<body>
-	<div class="myChartDiv">
-		<canvas id="myChart" width="600" height="300"></canvas>
-	</div>
+<body >
+	
+		<div id="Div1" style="float:left; width: 500px; overflow:auto; border: 2px solid black;">
+			<canvas id="myChart1" width="500" height="250"></canvas>
+		</div>
+		
+		<div id="Div2" style="float:left; width: 500px; overflow:auto; border: 2px solid black;">
+			<canvas id="myChart2" width="500" height="250"></canvas>
+		</div>
+		
+		<div id="Div3" style="float:left; width: 500px; overflow:auto; border: 2px solid black;">
+			<canvas id="myChart3" width="500" height="250"></canvas>
+		</div>
+		
+		<div id="Div4" style="float:left; width: 500px; overflow:auto; border: 2px solid black;">
+			<canvas id="myChart4" width="500" height="250"></canvas>
+		</div>
+		
+		
+		
+		<button id="button1" onclick="addData(myPieChart,5,50)">przycisk</button>
 	
 <script>
 	
-	
-	
-	var chrt = document.getElementById("myChart").getContext("2d");
-	var myarr = [0, 59, 80, 81, 56, 55, 40];
-	var data = {
-		labels: ["January", "February", "March", "April", "May", "June", "July"], //x-axis
-		datasets: [
-			{
-				label: "My First dataset", //optional
-				fillColor: "rgb(0,0,220)",
-				strokeColor: "rgba(220,0,0,0.8)",
-				highlightFill: "rgba(220,0,0,0.75)",
-				highlightStroke: "rgba(220,220,220,1)",
-				data: [0, 55, 55, 65, 59, 55, 81] // y-axis
-			},
-			{
-				label: "My Second dataset", //optional
-				fillColor: "rgba(220,120,220,0.8)",
-				strokeColor: "rgba(220,120,220,0.8)",
-				highlightFill: "rgba(220,220,220,0.75)",
-				highlightStroke: "rgba(220,220,220,1)",
-				data: myarr
-			}
-		]
-	};
-	
-	//var myFirstChart = new Chart(chrt).Bar(data);
-	var myPieChart = new Chart(chrt,{
-    type: 'line',
-    data: data
-	});
+	var chart1 = createEmptyChart("myChart1","silnik 1",'rgba(5, 100, 200, 0.6)');
+	var chart2 = createEmptyChart("myChart2","silnik 2",'rgba(5, 100, 200, 1)');
+	var chart3 = createEmptyChart("myChart3","silnik 3",'rgba(5, 100, 200, 0.6)');
+	var chart4 = createEmptyChart("myChart4","silnik 4",'rgba(5, 100, 200, 1)');
+
+
+
 
 </script>
 	
 </body>
+
+<!-- <script src="library/networktables/networktables.js"></script> -->
+<!-- <script src="ui.js"></script> -->

@@ -3,7 +3,7 @@ body{
 	background-color: #323232;
 	color: white;
 }
-#Container, #Camera, #ButtonWykresy, #Usage, #Autonomus, #Gyro, #Variables, #Robot{
+#Container, #Camera, #ButtonWykresy, #Usage, #Autonomus, #Gyro, #Variables, #Robot, #VarSelect{
 	border: 2px solid #212121;
 }
 
@@ -28,7 +28,7 @@ body{
 
 .NonDivider{clear: both;}
 
-.Side, #ButtonWykresy, #Usage, #Gyro, #Autonomus, #Variables, #Robot{ float: left; }
+.Side, #ButtonWykresy, #Usage, #Gyro, #Autonomus, #Variables, #Robot, .VarName, .VarValue, .VarInput{ float: left; }
 
 .Divider{}
 
@@ -38,7 +38,9 @@ body{
 
 #ButtonWykresy{} /*75px*/
 
-#Usage{width: 405px; height: 346px;} /*409px*/
+#Usage{width: 405px; height: 346px; position: relative;} /*409px*/
+
+	.Usage{position: absolute; text-align: center; width:120px; height: 40px; font-size: 30px;}
 
 #Gyro{width: 200px; height: 200px;} /*204px*/ /*Cała Prawa strona -> 878px*/
 
@@ -47,6 +49,22 @@ body{
 	#Button{margin-top: 50px; width: 670px; hight: 100px;}
 
 #Variables{width: 540px; height: 506px;}
+	
+	#VarCon{width: 540px; height: 156px;  border-bottom: 2px solid #212121;}
+		
+		#VarSelect{width: 270px; height: 48px; border-width: 0px 0px 0px 0px}
+		
+		.VarBox{}
+		
+			.VarName{width: 222px; background-color: #424242;  line-height: 4;}
+			
+			.VarValue{width: 222px;  line-height: 4; border-left: 2px solid #212121; border-right: 2px solid #212121;}
+			
+			.VarInput{width: 90px; background-color: #424242; border-right: 2px solid #212121;}
+
+.VarName, .VarValue, .VarInput {height: 104px; font-family: "Lucida Console", Monaco, monospace; font-size: 24px; border-top: 2px solid #212121;}
+
+#JeszczeNieWiadomoCo{width: 540px; height: 352px; border-top: 2px solid #212121;}
 
 #Robot{width: 330px; height: 506px;}
 
@@ -73,18 +91,27 @@ svg * {
 	
 }
 
-.button{
+input{
+	
+	background-color: #424242; text-algin: center; border-style: none; color: white; width: 79px; height: 102px; padding-left: 10px; font-size: 24px;
+	
+}
+
+input[type="button"]{
 	
 	background-color: #323232;
 	border-color: #212121;
 	border-style: solid;
 	cursor: pointer;
+	
+	color: black;
+	padding: 0px;
+	font: 400 13.3333px Arial;
 }
 
-.button:hover{
+input[type="button"]:hover{
 	
 	background-color: #383838;
 	border-color: #282828;
 	
 }
-

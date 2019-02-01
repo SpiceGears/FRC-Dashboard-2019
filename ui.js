@@ -64,11 +64,12 @@ function onValueChanged(key,value,isNew) {
 	
 	if (isNew && !document.getElementsByName(key)[0]) {
 		// Make a new div for this value
-		
-		
-		var div = document.createElement('div'); // Make div
+		if(key.substring(0,16) != "/SmartDashboard/") {
+				console.log("rasperka wysyła syf");
+		} else {
+			var div = document.createElement('div'); // Make div
 		ui.list.appendChild(div); // Add the div to the page
-
+		
 		var p = document.createElement('p'); // Make a <p> to display the name of the property
 		p.innerHTML = key; // Make content of <p> have the name of the NetworkTables value
 		div.appendChild(p); // Put <p> in div
@@ -106,6 +107,7 @@ function onValueChanged(key,value,isNew) {
 		};
 		// Put the input into the div.
 		div.appendChild(input);
+		}
 	} else { // If the value is not new
 		// Find already-existing input for changing this variable
 		var oldInput = document.getElementsByName(key)[0];
@@ -118,9 +120,12 @@ function onValueChanged(key,value,isNew) {
 		} else {
 			console.log('Error: Non-new variable ' + key + ' not present in tuning list!');
 		}
-	}
+			
+		}
+		
+	};
 	//koniec
-};
+
 //gyro-arm
 // NetworkTables.addKeyListener('/SmartDashboard/value1', (key,value) => {
 	// ui.testdiv.innerHTML = value;

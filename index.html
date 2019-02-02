@@ -147,14 +147,20 @@
 			var UsageValue3 = document.getElementById('UsageValue3');
 			var UsageValue4 = document.getElementById('UsageValue4');
 			
-			
-			
+		}
+		
+		function AutoReset(){
+			document.getElementById('AutoSelect1').value = " ";
+			document.getElementById('AutoSelect2').value = " ";
+			document.getElementById('AutoSelect3').value = " ";
 		}
 		
 		function OnLoad(){
 		
 			TranslateCanvas();
 			CavasChange();
+			
+			AutoReset();
 		}
 		
 		function allfalse(A, B, C){
@@ -165,6 +171,8 @@
 		
 		function Auto(x){
 			
+			var choose;
+			
 			var AutoSelect1 = document.getElementById('AutoSelect1');
 			var AutoSelect2 = document.getElementById('AutoSelect2');
 			var AutoSelect3 = document.getElementById('AutoSelect3');
@@ -172,9 +180,17 @@
 			allfalse(AutoSelect1, AutoSelect2, AutoSelect3);
 			
 			switch(x){
-				case 1: AutoSelect1.style.background = "green"; break;
-				case 2: AutoSelect2.style.background = "green"; break;
-				case 3: AutoSelect3.style.background = "green"; break;
+				case 1: AutoSelect1.style.background = "green"; choose = AutoSelect1.value; break;
+				case 2: AutoSelect2.style.background = "green"; choose = AutoSelect2.value; break;
+				case 3: AutoSelect3.style.background = "green"; choose = AutoSelect3.value; break;
+			}
+			
+			AutoReset();
+			
+			switch(x){
+				case 1: AutoSelect1.value = choose; break;
+				case 2: AutoSelect2.value = choose; break;
+				case 3: AutoSelect3.value = choose; break;
 			}
 		}
 	</script>
@@ -337,20 +353,26 @@
 					<circle cx="226" cy="447" r="20"/>
 					<circle cx="272" cy="447" r="20"/>
 					
-					<rect x="193" y="126" width="20" height="332" />
+					<rect x="239" y="126" width="20" height="332" />
 					
 					<rect x="140" y="436" width="172" height="22" /> <!-- Bumper -->
 					
-					<rect x="113" y="406" width="100" height="20" id="elevator"/>
+					<g id="robo-arm">
+						<rect x="139" y="406" width="100" height="20" /> 	<!--Ramię-->
+						<circle cx="139" cy="386" r="50" />					<!--Intake-->
+						<rect x="137" y="336" width="1" height="100"/>
+						<circle cx="139" cy="386" r="40" />
+						<rect x="84" y="336" width="52" height="100" style="stroke: #323232;"/>
+					</g>
 					
-					<rect x="10" y="396" width="90" height="40" id="lvl1" />
-					<rect x="100" y="406" width="13" height="20" />
+					<rect x="10" y="366" width="90" height="40" id="lvl1" />
+					<rect x="100" y="376" width="13" height="20" />
 					
-					<rect x="10" y="296" width="90" height="40" id="lvl2" />
-					<rect x="100" y="306" width="13" height="20" />
+					<rect x="10" y="266" width="90" height="40" id="lvl2" />
+					<rect x="100" y="276" width="13" height="20" />
 					
-					<rect x="10" y="196" width="90" height="40" id="lvl3" />
-					<rect x="100" y="206" width="13" height="20" />
+					<rect x="10" y="166" width="90" height="40" id="lvl3" />
+					<rect x="100" y="176" width="13" height="20" />
 					
 				</svg>
 				

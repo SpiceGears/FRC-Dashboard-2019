@@ -153,7 +153,7 @@ function onValueChanged(key, value, isNew) {
 						// Solid red timer when less than 30 seconds left.
 						ui.timer.style.color = '#FF3030';
 					}
-					ui.timer.innerHTML = m + ':' + visualS;
+					ui.timer.innerHTML = "Time: " + m + ':' + visualS;
 				}, 1000);
 			} else {
 				s = 135;

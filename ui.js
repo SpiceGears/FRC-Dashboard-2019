@@ -61,6 +61,32 @@ function onValueChanged(key,value,isNew) {
 		case '/SmartDashboard/value2':
 			//ui.testdiv2.innerHTML = value;
 			break;
+		case '/SmartDashboard/time_running':
+			var s = 135;
+			if (value) {
+				ui.timer.style.color = 'black';
+				var countdown = setInterval(function() {
+					s--; // Subtract one second
+					var m = Math.floor(s / 60);
+					var visualS = (s % 60);
+
+					visualS = visualS < 10 ? '0' + visualS : visualS;
+
+					if (s < 0) {
+						clearTimeout(countdown);
+						return;
+					} else if (s <= 15) {
+						ui.timer.style.color = (s % 2 === 0) ? '#FF3030' : 'transparent';
+					} else if (s <= 30) {
+						ui.timer.style.color = '#FF3030';
+					}
+					ui.timer.innerHTML = "Time: " + m + ':' + visualS;
+				}, 1000);
+			} else {
+				s = 135;
+			}
+			NetworkTables.putValue(key, false);
+			break;
 	}
 	
 	

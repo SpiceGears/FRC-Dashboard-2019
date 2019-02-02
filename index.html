@@ -181,8 +181,8 @@
 	
 </head>
 <body onload="OnLoad()">
-	<!-- <div id="testDiv1">0</div> -->
-	<!-- <div id="testDiv2">0</div> -->
+	<div id="testDiv1">0</div>
+	<div id="testDiv2">0</div>
 	<div id="Container">
 		
 		<div class="Divider"> <!-- Górna część -->
@@ -208,9 +208,13 @@
 				
 			</div>
 			
+	
+			
 			<div id="ButtonWykresy"> <!-- Przycisk do Wykresów -->
-				
-				<input type="button" value="Wykresy" style="width:71px; height: 326px;"/>
+				<form action="http://localhost:8888/wykresy.html">
+					<input type="submit" value="wykresy" style="width:71px; height: 326px;"/>
+				</form>
+				<!-- <input type="button" value="Wykresy" style="width:71px; height: 326px;"/> -->
 				
 			</div>
 			
@@ -236,8 +240,8 @@
 			<div class="Divider"> <!-- Góra -->
 					
 				<div id="Gyro"> <!-- Żyroskop -->
-					<svg width="600" height="600">
-					<g transform="matrix(1 0 0 -1 100 100)">
+					<svg width="600" height="600" >
+					<g transform="matrix(1 0 0 -1 100 100)" >
 						<rect x="0"  y="0"  width="4" height="30"  transform=" translate(-2 60) rotate(0)" />
 						<rect x="0"  y="0"  width="4" height="30"  transform=" translate(-2 60) rotate(-90 2 -60)" />
 						<rect x="0"  y="0"  width="4" height="30"  transform=" translate(-2 60) rotate(90 2 -60)" />
@@ -256,13 +260,14 @@
 						<rect x="0"  y="0"  width="4" height="20"  transform=" translate(-2 60) rotate(-157.5 2 -60)" />
 						<rect x="0"  y="0"  width="4" height="20"  transform=" translate(-2 60) rotate(157.5 2 -60)" />
 						
+						<g id="gyro-arm">
+						<rect x="-10" y="0" rx="30" ry="10" width="20" height="70" />
+						<rect x="-10" y="-70" width="20" rx="30" ry="10" height="70" />
+						<circle cx="0" cy="0" r="18" stroke="black" fill="black" />
+						</g>	
 						
 					</g>
-					<g id="gyro-arm">
-						<rect x="90" y="100" rx="30" ry="10" width="20" height="70" />
-						<rect x="90" y="30" width="20" rx="30" ry="10" height="70" />
-						<circle cx="100" cy="100" r="18" stroke="black" fill="black" />
-					</g>	
+					
 					
 					<text id="gyro-value" x="101" y="104" text-anchor="middle">360*</text>
 					
@@ -349,7 +354,7 @@
 	</div>
 	
 </body>
-<script src="jquery-3.3.1.js"></script>
-<script src="networktables/networktables.js"></script>
-<script src="ui.js"></script>
+<!-- <script src="jquery-3.3.1.js"></script> -->
+<!-- <script src="networktables/networktables.js"></script> -->
+<!-- <script src="ui.js"></script> -->
 </html>

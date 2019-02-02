@@ -95,19 +95,19 @@ input{
 	
 }
 
-input[type="button"]{
+input[type="submit"]{
 	
 	background-color: #323232;
 	border-color: #212121;
 	border-style: solid;
 	cursor: pointer;
 	
-	color: black;
+	color: white;
 	padding: 0px;
 	font: 400 13.3333px Arial;
 }
 
-input[type="button"]:hover{
+input[type="submit"]:hover{
 	
 	background-color: #383838;
 	border-color: #282828;

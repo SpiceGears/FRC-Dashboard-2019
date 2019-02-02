@@ -181,8 +181,8 @@
 	
 </head>
 <body onload="OnLoad()">
-	<div id="testDiv1">0</div>
-	<div id="testDiv2">0</div>
+	<!-- <div id="testDiv1">0</div> -->
+	<!-- <div id="testDiv2">0</div> -->
 	<div id="Container">
 		
 		<div class="Divider"> <!-- Górna część -->
@@ -210,9 +210,9 @@
 			
 	
 			
-			<div id="ButtonWykresy"> <!-- Przycisk do Wykresów -->
+			<div id="ButtonWykresy""> <!-- Przycisk do Wykresów -->
 				<form action="http://localhost:8888/wykresy.html">
-					<input type="submit" value="wykresy" style="width:71px; height: 326px;"/>
+					<input type="submit" value="wykresy" style="width: 71px; height: 326px;" />
 				</form>
 				<!-- <input type="button" value="Wykresy" style="width:71px; height: 326px;"/> -->
 				
@@ -261,15 +261,15 @@
 						<rect x="0"  y="0"  width="4" height="20"  transform=" translate(-2 60) rotate(157.5 2 -60)" />
 						
 						<g id="gyro-arm">
-						<rect x="-10" y="0" rx="30" ry="10" width="20" height="70" />
-						<rect x="-10" y="-70" width="20" rx="30" ry="10" height="70" />
+						<rect x="-10" y="0" rx="30" ry="10" width="20" height="70" style="fill: blue;" />
+						<rect x="-10" y="-70" width="20" rx="30" ry="10" height="70" style="fill: red;" />
 						<circle cx="0" cy="0" r="18" stroke="black" fill="black" />
 						</g>	
 						
 					</g>
 					
 					
-					<text id="gyro-value" x="101" y="104" text-anchor="middle">360*</text>
+					<text id="gyro-value" x="101" y="104" text-anchor="middle">90°</text>
 					
 					</svg>
 				</div>
@@ -354,7 +354,7 @@
 	</div>
 	
 </body>
-<!-- <script src="jquery-3.3.1.js"></script> -->
-<!-- <script src="networktables/networktables.js"></script> -->
-<!-- <script src="ui.js"></script> -->
+<script src="jquery-3.3.1.js"></script>
+<script src="networktables/networktables.js"></script>
+<script src="ui.js"></script>
 </html>

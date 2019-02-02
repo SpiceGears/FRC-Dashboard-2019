@@ -95,6 +95,12 @@ input{
 	
 }
 
+input [type="checbox"]{
+	
+	text-algin: left;
+	
+}
+
 input[type="submit"]{
 	
 	background-color: #323232;

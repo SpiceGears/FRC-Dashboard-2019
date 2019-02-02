@@ -12,8 +12,8 @@ body{
 	margin-left: auto;
 	margin-right: auto;
 	
-	width: 1362px; /*1366px*/
-	height: 764px; /*768px*/
+	width: 1330px; /*1366px*/
+	height: 744px; /*768px*/
 }
 
 #Timer, #RobotStatus{
@@ -32,29 +32,31 @@ body{
 
 .Divider{}
 
-.ButtonSpace{float: left; margin-left: 55px;}
-
 #Camera{width: 480px; height: 360px;} /*484px <- cała lewa strona*/
 
 #ButtonWykresy{} /*75px*/
 
-#Usage{width: 405px; height: 346px; position: relative;} /*409px*/
+#Usage{width: 405px; height: 326px; position: relative;} /*409px*/
 
 	.Usage{position: absolute; text-align: center; width:120px; height: 40px; font-size: 30px;}
 
 #Gyro{width: 200px; height: 200px;} /*204px*/ /*Cała Prawa strona -> 878px*/
 
-#Autonomus{width: 670px; height: 200px;} /*674px*/
+#Autonomus{width: 638px; height: 200px;} /*674px*/
 
-	#Button{margin-top: 50px; width: 670px; hight: 100px;}
-
-#Variables{width: 540px; height: 506px;}
+	#Auto{margin-top: 50px; width: 642px; height: 100px;}
+	
+		#AutoSpace1{float: left; margin-left: 55px; width:150px; height: 100px;}
+		
+		#AutoSpace2{float: left; margin-left: 55px; width:150px; height: 100px;}
+		
+		#AutoSpace3{float: left; margin-left: 55px; width:150px; height: 100px;}
+		
+#Variables{width: 508px; height: 486px; overflow:auto;}
 
 	#tuning{}
 
-#JeszczeNieWiadomoCo{width: 540px; height: 352px; border-top: 2px solid #212121;}
-
-#Robot{width: 330px; height: 506px;}
+#Robot{width: 330px; height: 486px;}
 
 
 
@@ -81,7 +83,8 @@ svg * {
 
 input{
 	
-	background-color: #424242; text-algin: center; border-style: none; color: white; width: 79px; height: 102px; padding-left: 10px; font-size: 24px;
+	background-color: #424242; text-algin: center; border-style: none; color: white; width: 495px; height: 50px; padding-left: 10px; font-size: 24px;
+	margin-left: auto;
 	
 }
 
@@ -101,5 +104,18 @@ input[type="button"]:hover{
 	
 	background-color: #383838;
 	border-color: #282828;
+	
+}
+
+select{
+	
+	width: 150px;
+	height: 100px;
+	text-align: center;
+	font-size: 16px;
+	
+	background-color: #323232;
+	border: 1px solid #212121;
+	color: white;
 	
 }

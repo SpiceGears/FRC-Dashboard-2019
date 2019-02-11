@@ -56,7 +56,7 @@ function onValueChanged(key,value,isNew) {
 		case '/SmartDashboard/gyro':
 			//ui.testdiv1.innerHTML = value;
 			ui.gyroValue.innerHTML = value;
-			ui.robotGyro.style.transform = "rotate(" + value + "deg)";
+			ui.robotGyro.style.transform = "rotate(" + value + ")";
 			break;
 		case '/SmartDashboard/value2':
 			//ui.testdiv2.innerHTML = value;

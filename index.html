@@ -11,22 +11,22 @@
 			var canvasElem = document.getElementById('myCanvas1');
 			var ctx = canvasElem.getContext('2d');
 			
-			ctx.translate(101,90);
+			ctx.translate(75,75);
 			
 			var canvasElem = document.getElementById('myCanvas2');
 			var ctx = canvasElem.getContext('2d');
 			
-			ctx.translate(101,90);
+			ctx.translate(75,75);
 			
 			var canvasElem = document.getElementById('myCanvas3');
 			var ctx = canvasElem.getContext('2d');
 			
-			ctx.translate(101,90);
+			ctx.translate(75,75);
 			
 			var canvasElem = document.getElementById('myCanvas4');
 			var ctx = canvasElem.getContext('2d');
 			
-			ctx.translate(101,90);
+			ctx.translate(75,75);
 			
 		}
 		
@@ -37,7 +37,7 @@
 				
 			ctx.beginPath();
 				
-				ctx.arc(0, 0, 80, 0.75*Math.PI, 0.25*Math.PI);
+				ctx.arc(0, 0, 60, 0.75*Math.PI, 0.25*Math.PI);
 				
 				ctx.lineTo(0, 0);
 				
@@ -54,7 +54,7 @@
 		
 			ctx.beginPath();
 				
-				ctx.arc(0, 0, 70, 0, 4*Math.PI);
+				ctx.arc(0, 0, 50, 0, 4*Math.PI);
 				
 				ctx.strokeStyle = '#323232';
 				ctx.fillStyle = "#323232";
@@ -64,7 +64,7 @@
 			
 		}
 		
-		function CavasChange(){ <!-- Miejsce odbierania wartości progressbarów -->
+		function CavasChange(degree1, degree2, degree3, degree4){ <!-- Miejsce odbierania wartości progressbarów -->
 			
 			CanvasBase(document.getElementById('myCanvas1'));
 			CanvasBase(document.getElementById('myCanvas2'));
@@ -75,11 +75,11 @@
 			
 			var canvasElem = document.getElementById('myCanvas1');
 			var ctx = canvasElem.getContext('2d');
-			var degree1 = 0.5*Math.PI;
+			degree1 = 0.5*Math.PI; // 0 - 1.5
 			 
 			ctx.beginPath();
 				
-				ctx.arc(0, 0, 80, 0.75*Math.PI, degree1+0.75*Math.PI);
+				ctx.arc(0, 0, 60, 0.75*Math.PI, degree1+0.75*Math.PI);
 				
 				ctx.lineTo(0, 0);
 				
@@ -91,27 +91,37 @@
 			
 			var canvasElem = document.getElementById('myCanvas2');
 			var ctx = canvasElem.getContext('2d');
-			var degree2 = 1.25*Math.PI;
+			var direction2 = false;
+			degree2 = 0.3*Math.PI; // -0.75 - 0.75
+			
+			if(degree2<0) direction3 = true;
+			if(degree2<-0.75) degree3 = -0.75;
+			if(degree2>0.75) degree3 = 0.75;
 			
 			ctx.beginPath();
 				
-				ctx.arc(0, 0, 80, 0.75*Math.PI, degree2+0.75*Math.PI);
+				ctx.arc(0, 0, 60, 1.5*Math.PI, degree2+1.5*Math.PI, direction2);
 				
 				ctx.lineTo(0, 0);
 				
-				ctx.strokeStyle = 'blue';
-				ctx.fillStyle = 'blue';
+				ctx.strokeStyle = 'yellow';
+				ctx.fillStyle = 'yellow';
 				ctx.fill();
 				
 			ctx.stroke();
 			
 			var canvasElem = document.getElementById('myCanvas3');
 			var ctx = canvasElem.getContext('2d');
-			var degree3 = 0.75*Math.PI;
+			var direction3 = false;
+			degree3 = 0.75*Math.PI; // -0.75 - 0.75
+			
+			if(degree3<0) direction3 = true;
+			if(degree3<-0.75) degree3 = -0.75;
+			if(degree3>0.75) degree3 = 0.75;
 			
 			ctx.beginPath();
 				
-				ctx.arc(0, 0, 80, 0.75*Math.PI, degree3+0.75*Math.PI);
+				ctx.arc(0, 0, 60, 1.5*Math.PI, degree3+1.5*Math.PI, direction3);
 				
 				ctx.lineTo(0, 0);
 				
@@ -123,11 +133,11 @@
 			
 			var canvasElem = document.getElementById('myCanvas4');
 			var ctx = canvasElem.getContext('2d');
-			var degree4 = 1*Math.PI;
+			degree4 = 1*Math.PI; // 0 - 1.5
 			
 			ctx.beginPath();
 				
-				ctx.arc(0, 0, 80, 0.75*Math.PI, degree4+0.75*Math.PI);
+				ctx.arc(0, 0, 60, 0.75*Math.PI, degree4+0.75*Math.PI);
 				
 				ctx.lineTo(0, 0);
 				
@@ -150,9 +160,7 @@
 		}
 		
 		function AutoReset(){
-			document.getElementById('AutoSelect1').value = " ";
-			document.getElementById('AutoSelect2').value = " ";
-			document.getElementById('AutoSelect3').value = " ";
+			document.getElementById('AutoSelect').value = " ";
 		}
 		
 		function OnLoad(){
@@ -163,35 +171,14 @@
 			AutoReset();
 		}
 		
-		function allfalse(A, B, C){
-			A.style.background = "#323232";
-			B.style.background = "#323232";
-			C.style.background = "#323232";
-		}
-		
-		function Auto(x){
+		function Auto(){
 			
-			var choose;
+			var AutoSelect = document.getElementById('AutoSelect');
 			
-			var AutoSelect1 = document.getElementById('AutoSelect1');
-			var AutoSelect2 = document.getElementById('AutoSelect2');
-			var AutoSelect3 = document.getElementById('AutoSelect3');
+			AutoSelect.style.background = "#323232";
+				
+			//AutoSelect.style.background = "green";
 			
-			allfalse(AutoSelect1, AutoSelect2, AutoSelect3);
-			
-			switch(x){
-				case 1: AutoSelect1.style.background = "green"; choose = AutoSelect1.value; break;
-				case 2: AutoSelect2.style.background = "green"; choose = AutoSelect2.value; break;
-				case 3: AutoSelect3.style.background = "green"; choose = AutoSelect3.value; break;
-			}
-			
-			AutoReset();
-			
-			switch(x){
-				case 1: AutoSelect1.value = choose; break;
-				case 2: AutoSelect2.value = choose; break;
-				case 3: AutoSelect3.value = choose; break;
-			}
 		}
 	</script>
 	
@@ -227,8 +214,8 @@
 	
 			
 			<div id="ButtonWykresy""> <!-- Przycisk do Wykresów -->
-				<form action="http://localhost:8888/wykresy.html">
-					<input type="submit" value="wykresy" style="width: 71px; height: 326px;" />
+				<form action="http://localhost:8888/wykresy.html" target="_blnack">
+					<input type="submit" value="wykresy" style="width: 71px; height: 150px;" />
 				</form>
 				<!-- <input type="button" value="Wykresy" style="width:71px; height: 326px;"/> -->
 				
@@ -236,22 +223,22 @@
 			
 			<div id="Usage">		<!-- Zużcie Baterii UPC RAM -->
 				
-				<div class="Usage" style="left: 41px; top: 65px;"><span id="UsageValue1">33%</span></div>
-				<div class="Usage" style="left: 41px; top: 100px; font-size: 22px;"><span>Battery</span></div>
+				<div class="Usage" style="left: 0px; top: 60px;"><span id="UsageValue1">33%</span></div>
+				<div class="Usage" style="left: 0px; top: 80px;"><span>Po</span></div>
 				
-				<div class="Usage" style="left: 243px; top: 65px;"><span id="UsageValue2">83%</span></div>
-				<div class="Usage" style="left: 243px; top: 100px; font-size: 22px;"><span>RIO CPU</span></div>
+				<div class="Usage" style="left: 150px; top: 60px;"><span id="UsageValue2">83%</span></div>
+				<div class="Usage" style="left: 150px; top: 80px;"><span>Laa-Laa</span></div>
 				
-				<div class="Usage" style="left: 41px; top: 236px;"><span id="UsageValue3">50%</span></div>
-				<div class="Usage" style="left: 41px; top: 271px; font-size: 22px;"><span>Battery Usage</span></div>
+				<div class="Usage" style="left: 300px; top: 60px;"><span id="UsageValue3">50%</span></div>
+				<div class="Usage" style="left: 300px; top: 80px;"><span>Dipsy</span></div>
 				
-				<div class="Usage" style="left: 243px; top: 236px;"><span id="UsageValue4">66%</span></div>
-				<div class="Usage" style="left: 243px; top: 271px; font-size: 22px;"><span>RIO RAM</span></div>
+				<div class="Usage" style="left: 450px; top: 60px;"><span id="UsageValue4">66%</span></div>
+				<div class="Usage" style="left: 450px; top: 80px;"><span>Tinky-Winky</span></div>
 				
-				<canvas id="myCanvas1" width="202.5" height="161">Canvas 1 doesn't respond</canvas>
-				<canvas id="myCanvas2" width="202.5" height="161" style="float: right;">Canvas 2 doesn't respond</canvas>
-				<canvas id="myCanvas3" width="202.5" height="161">Canvas 3 doesn't respond</canvas>
-				<canvas id="myCanvas4" width="202.5" height="161" style="float: right;">Canvas 4 doesn't respond</canvas>
+				<canvas id="myCanvas1" width="150" height="150" style="float:left;">Canvas 1 doesn't respond</canvas>
+				<canvas id="myCanvas2" width="150" height="150" style="float:left;">Canvas 2 doesn't respond</canvas>
+				<canvas id="myCanvas3" width="150" height="150" style="float:left;">Canvas 3 doesn't respond</canvas>
+				<canvas id="myCanvas4" width="150" height="150" style="float:left;">Canvas 4 doesn't respond</canvas>
 				
 				
 				
@@ -300,27 +287,19 @@
 					
 					<div id="Auto">
 						
-						<div id="AutoSpace1" onchange="Auto(1)">
-							<select id="AutoSelect1">
+						<div id="AutoSpace" onchange="Auto(1)">
+							<select id="AutoSelect">
 								<option>Snake Path</option>
 								<option>KAMIKAZE Lest Rocket</option>
 								<option>Spin To win</option>
 							</select>
 						</div>
-						<div id="AutoSpace2" onchange="Auto(2)">
-							<select id="AutoSelect2">
-								<option>Load n' Go</option>
-								<option>9/11</option>
-								<option>Spin To win</option>
-							</select>
-						</div>
-						<div id="AutoSpace3" onchange="Auto(3)">
-							<select id="AutoSelect3">
-								<option>Snake Path</option>
-								<option>KAMIKAZE Right Tower</option>
-								<option>Spin To win</option>
-							</select>
-						</div>
+						
+						<!-- <input type="button" style="width:75px; height:75px; margin-left:50px; margin-top:10px;" onclick="AutoReset()"/> -->
+						
+						<svg width=150 height=100>
+							<rect x=50 y=25 width=50 height=50 style="fill:purple;">
+						</svg>
 						
 					</div>
 					
@@ -359,10 +338,12 @@
 					
 					<g id="robo-arm">
 						<rect x="139" y="406" width="100" height="20" /> 	<!--Ramię-->
-						<circle cx="139" cy="386" r="50" />					<!--Intake-->
-						<rect x="137" y="336" width="1" height="100"/>
-						<circle cx="139" cy="386" r="40" />
-						<rect x="84" y="336" width="52" height="100" style="stroke: #323232;"/>
+						<g id="intake">
+							<circle cx="139" cy="386" r="50" />					<!--Intake-->
+							<rect x="137" y="336" width="1" height="100"/>
+							<circle cx="139" cy="386" r="40" />
+							<rect x="84" y="336" width="52" height="100" style="stroke: #323232;"/>
+						</g>
 					</g>
 					
 					<rect x="10" y="366" width="90" height="40" id="lvl1" style="fill: purple;"/>

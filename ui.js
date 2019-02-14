@@ -115,6 +115,7 @@ function onValueChanged(key,value,isNew) {
 			input.checked = value; // value property doesn't work on checkboxes, we'll need to use the checked property instead
 		} else if (!isNaN(value)) { // Is the value not not a number? Great!
 			input.type = 'number';
+			div.style.background = "#323232"
 		} else { // Just use a text if there's no better manipulation method
 			input.type = 'text';
 		}

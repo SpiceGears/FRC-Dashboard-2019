@@ -33,32 +33,27 @@ body{
 
 .Divider{}
 
-#Camera{width: 480px; height: 360px;} /*484px <- cała lewa strona*/
+#Camera{width: 675px; height: 536px;} /*484px <- cała lewa strona*/
 
 #ButtonWykresy{} /*75px*/
 
-#Usage{width: 405px; height: 326px; position: relative;} /*409px*/
+#Usage{width: 600px; height: 150px; position: relative;} /*409px*/
 
-	.Usage{position: absolute; text-align: center; width:120px; height: 40px; font-size: 30px;}
+	.Usage{position: absolute; text-align: center; width:150px; height: 40px; font-size: 15px;}
 
 #Gyro{width: 200px; height: 200px;} /*204px*/ /*Cała Prawa strona -> 878px*/
 
-#Autonomus{width: 638px; height: 200px;} /*674px*/
+#Autonomus{width: 443px; height: 200px;} /*674px*/
 
-	#Auto{margin-top: 50px; width: 642px; height: 100px;}
+	#Auto{margin-top: 50px; height: 100px;}
 	
-		#AutoSpace1{float: left; margin-left: 55px; width:150px; height: 100px;}
+		#AutoSpace{float: left; margin-left: 55px; width:150px; height: 100px;}
 		
-		#AutoSpace2{float: left; margin-left: 55px; width:150px; height: 100px;}
-		
-		#AutoSpace3{float: left; margin-left: 55px; width:150px; height: 100px;}
-		
-#Variables{width: 508px; height: 486px; overflow:auto;}
+#Variables{width: 313px; height: 486px; overflow:auto;}
 
 	#tuning{}
 
 #Robot{width: 330px; height: 486px;}
-
 
 
 

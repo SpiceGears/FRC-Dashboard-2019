@@ -1,2 +1,0 @@
-tornado>=4.0
-pynetworktables>=2018.2.0

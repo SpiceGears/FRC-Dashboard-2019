@@ -7,7 +7,7 @@ var newArm = 0;
 var ui = {
     timer: document.getElementById('timer'),
 	
-	//rasberryState: dociment.getElementById('rasp-status'),
+	rasberryState: document.getElementById('rasp-status'),
 	
     robotState: document.getElementById('robotstatus'),
 	
@@ -86,15 +86,15 @@ function onValueChanged(key,value,isNew) {
 				ui.tapeDetected.style.fill = 'red';
 			};
 			
-		case '/SmartDashboard/gyro':
+		// case '/SmartDashboard/gyro':
 			//ui.testdiv1.innerHTML = value;
-			ui.gyroValue.innerHTML = value;
-			gyro = value - oldGyro;
-			oldGyro = value;
-			ui.robotGyro.style.transform = "rotate(" + gyro + "deg)";
+			// ui.gyroValue.innerHTML = value;
+			// gyro = value - oldGyro;
+			// oldGyro = value;
+			// ui.robotGyro.style.transform = "rotate(" + gyro + "deg)";
 			
-			console.log("gyro: " + gyro);
-			break;
+			// console.log("gyro: " + gyro);
+			// break;
 		case '/SmartDashboard/ElevatorOutput':
 			canvas1 = value;
 			updateCanvas();
@@ -105,12 +105,12 @@ function onValueChanged(key,value,isNew) {
 			updateCanvas();
 			//changeSecondCanvas(value * 0.75);
 			break;
-		case '/SmartDashboard/ActualRightSpeed':
+		case '/SmartDashboard/ClimbingSpeed':
 			canvas3 = value;
 			updateCanvas()
 			//changeThirdCanvas(value * 0.75);
 			break;
-		case '/SmartDashboard/progressbar4':
+		case '/SmartDashboard/IntakeRawOutput':
 			canvas4 = value;
 			updateCanvas()
 			//changeFourthCanvas(value);
@@ -134,12 +134,15 @@ function onValueChanged(key,value,isNew) {
 	}
 	
 	
-	//początek
+	//początek  /CameraPublisher/
 	
 	if (isNew && !document.getElementsByName(key)[0]) {
 		// Make a new div for this value
-		if(key.substring(0,16) != "/SmartDashboard/") {
-				console.log("rasperka wysyła syf");
+		if(key.substring(0,17) === "/CameraPublisher/") {
+				ui.rasberryState.innerHTML = "Connected";
+			console.log("rasperka działa");
+		} else if(key.substring(0,16) != "/SmartDashboard/") {
+			console.log("raspberka wysyla syf");
 		} else {
 			key = key.slice(16);
 			var div = document.createElement('div'); // Make div
@@ -180,7 +183,7 @@ function onValueChanged(key,value,isNew) {
 					NetworkTables.putValue(key, input.value);
 					break;
 			}
-		};
+		 };
 		// Put the input into the div.
 		div.appendChild(input);
 		}

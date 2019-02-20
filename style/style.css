@@ -17,14 +17,14 @@ body{
 	height: 744px; /*768px*/
 }
 
-#Timer, #RobotStatus{
+#Timer, #RobotStatus, #Rasberrypie{
 	
 	text-align: center;
 	float: left;
 	
-	width: 50%;
+	width: 33%;
 	padding: 5px 0px 5px;
-	font-size: 35px;
+	font-size: 32px;
 }
 
 .NonDivider{clear: both;}
@@ -33,27 +33,27 @@ body{
 
 .Divider{}
 
-#Camera{width: 675px; height: 536px;} /*484px <- cała lewa strona*/
+#Camera{width: 640px; height: 480px;} /*484px <- cała lewa strona*/
 
-#ButtonWykresy{} /*75px*/
+#ButtonWykresy{height:210px;} /*75px*/
 
-#Usage{width: 600px; height: 150px; position: relative;} /*409px*/
+#Usage{width: 600px; height: 210px; position: relative;} /*409px*/
 
 	.Usage{position: absolute; text-align: center; width:150px; height: 40px; font-size: 15px;}
 
 #Gyro{width: 200px; height: 200px;} /*204px*/ /*Cała Prawa strona -> 878px*/
 
-#Autonomus{width: 443px; height: 200px;} /*674px*/
+#Autonomus{width: 478px; height: 200px;} /*674px*/
 
 	#Auto{margin-top: 50px; height: 100px;}
 	
 		#AutoSpace{float: left; margin-left: 55px; width:150px; height: 100px;}
 		
-#Variables{width: 313px; height: 486px; overflow:auto;}
+#Variables{width: 348px; height: 490px; overflow:auto;}
 
 	#tuning{}
 
-#Robot{width: 330px; height: 486px;}
+#Robot{width: 330px; height: 490px;}
 
 
 

@@ -1,6 +1,13 @@
 // Define UI elements
+var oldGyro = 0;
+var gyro = 0;
+var oldArm = 0;
+var newArm = 0;
+
 var ui = {
     timer: document.getElementById('timer'),
+	
+	//rasberryState: dociment.getElementById('rasp-status'),
 	
     robotState: document.getElementById('robotstatus'),
 	
@@ -15,6 +22,16 @@ var ui = {
 	gyroValue: document.getElementById('gyro-value'),
 	
 	list: document.getElementById('tuning'),
+	
+	autonomusList: document.getElementById('AutoSelect'),
+	
+	cameraContainer: document.getElementById('Camera'),
+	
+	robotArm: document.getElementById('robo-arm'),
+	
+	tapeDetected: document.getElementById('rasbIfSee'),
+	
+	tapeYaw: document.getElementById('textyaw'),
 
 };
 
@@ -22,11 +39,20 @@ var ui = {
 
 NetworkTables.addRobotConnectionListener(onRobotConnection, true);
 
+function A(){
+	
+		ui.robotGyro.style.transform = "rotate(60deg)";
+	
+}
+
 function onRobotConnection(connected) {
-	var state = connected ? 'Connected!' : 'Disconnected.';
+	var state = connected ? 'Connected!' : 'Disconnected';
 	console.log(state);
 	ui.robotState.innerHTML = state;
 }
+
+//attachSelectToSendableChooser("autonomusList", "Autonomous Mode");
+
 
 NetworkTables.addGlobalListener(onValueChanged, true);
 
@@ -53,39 +79,57 @@ function onValueChanged(key,value,isNew) {
 	}
 	
 	switch(key) {
+		case '/SmartDashboard/TapeDetected':
+			if(value){ 
+				ui.tapeDetected.style.fill = 'green';
+			}else {
+				ui.tapeDetected.style.fill = 'red';
+			};
+			
 		case '/SmartDashboard/gyro':
 			//ui.testdiv1.innerHTML = value;
 			ui.gyroValue.innerHTML = value;
-			ui.robotGyro.transform = "rotate(" + value + ")";
+			gyro = value - oldGyro;
+			oldGyro = value;
+			ui.robotGyro.style.transform = "rotate(" + gyro + "deg)";
+			
+			console.log("gyro: " + gyro);
 			break;
-		case '/SmartDashboard/value2':
-			//ui.testdiv2.innerHTML = value;
+		case '/SmartDashboard/ElevatorOutput':
+			canvas1 = value;
+			updateCanvas();
+			//changeFirstCanvas(value);
 			break;
-		case '/SmartDashboard/time_running':
-			var s = 135;
-			if (value) {
-				ui.timer.style.color = 'black';
-				var countdown = setInterval(function() {
-					s--; // Subtract one second
-					var m = Math.floor(s / 60);
-					var visualS = (s % 60);
-
-					visualS = visualS < 10 ? '0' + visualS : visualS;
-
-					if (s < 0) {
-						clearTimeout(countdown);
-						return;
-					} else if (s <= 15) {
-						ui.timer.style.color = (s % 2 === 0) ? '#FF3030' : 'transparent';
-					} else if (s <= 30) {
-						ui.timer.style.color = '#FF3030';
-					}
-					ui.timer.innerHTML = "Time: " + m + ':' + visualS;
-				}, 1000);
-			} else {
-				s = 135;
+		case '/SmartDashboard/ActualLeftSpeed':
+			canvas2 = value;
+			updateCanvas();
+			//changeSecondCanvas(value * 0.75);
+			break;
+		case '/SmartDashboard/ActualRightSpeed':
+			canvas3 = value;
+			updateCanvas()
+			//changeThirdCanvas(value * 0.75);
+			break;
+		case '/SmartDashboard/progressbar4':
+			canvas4 = value;
+			updateCanvas()
+			//changeFourthCanvas(value);
+			break;
+		case '/SmartDashboard/ElevatorEncoder': //Trzeba dorobić w kodzie robota
+			newArm = value - oldArm;
+			oldArm = value;
+			ui.robotArm.style.transform = ('translate(0px,' + newArm * -13000 + 'px)');
+			console.log(newArm);
+			break;
+		case '/SmartDashboard/rasberryState': //RasberryState nwm czy to tak działa xd
+			ui.rasberryState.innerHTML = value ? 'Connected!' : 'Disconnected';
+			break;
+		case '/SmartDashboard/TapeYaw':
+			if(value){
+				ui.tapeYaw.innerHTML = value;
 			}
-			NetworkTables.putValue(key, false);
+		case '/SmartDashboard/timer':
+			ui.timer.innerHTML = parseInt(value) < 0 ? '0:00' : Math.floor(parseInt(value) / 60) + ':' + (parseInt(value) % 60 < 10 ? '0' : '') + parseInt(value) % 60;
 			break;
 	}
 	
@@ -97,6 +141,7 @@ function onValueChanged(key,value,isNew) {
 		if(key.substring(0,16) != "/SmartDashboard/") {
 				console.log("rasperka wysyła syf");
 		} else {
+			key = key.slice(16);
 			var div = document.createElement('div'); // Make div
 		ui.list.appendChild(div); // Add the div to the page
 		
@@ -141,6 +186,7 @@ function onValueChanged(key,value,isNew) {
 		}
 	} else { // If the value is not new
 		// Find already-existing input for changing this variable
+		key = key.slice(16);
 		var oldInput = document.getElementsByName(key)[0];
 		if (oldInput) { // If there is one (there should be, unless something is wrong)
 			if (oldInput.type === 'checkbox') { // Figure out what data type it is and update it in the list
@@ -149,7 +195,7 @@ function onValueChanged(key,value,isNew) {
 				oldInput.value = value;
 			}
 		} else {
-			console.log('Error: Non-new variable ' + key + ' not present in tuning list!');
+			//console.log('Error: Non-new variable ' + key + ' not present in tuning list!');
 		}
 			
 		}

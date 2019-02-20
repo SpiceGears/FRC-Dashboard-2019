@@ -5,6 +5,11 @@
 	<link rel="stylesheet" href="style/style.css" type="text/css" />
 	
 	<script>
+	
+	var canvas1 = 0;
+	var canvas2 = 0;
+	var canvas3 = 0;
+	var canvas4 = 1 * 0.74;
 		
 		function TranslateCanvas(){
 			
@@ -29,7 +34,6 @@
 			ctx.translate(75,75);
 			
 		}
-		
 		
 		function CanvasBase(canvasElem){
 			
@@ -71,15 +75,21 @@
 			CanvasBase(document.getElementById('myCanvas3'));
 			CanvasBase(document.getElementById('myCanvas4'));
 			
-			
+			document.getElementById('UsageValue1').innerHTML = Math.round(degree1 * 100)/100;
+			document.getElementById('UsageValue2').innerHTML = Math.round(degree2 * 100)/100;
+			document.getElementById('UsageValue3').innerHTML = Math.round(degree3 * 100)/100;
+			document.getElementById('UsageValue4').innerHTML = degree4;
 			
 			var canvasElem = document.getElementById('myCanvas1');
 			var ctx = canvasElem.getContext('2d');
-			degree1 = 0.5*Math.PI; // 0 - 1.5
-			 
+			var direction1 = false;
+			degree1 = degree1 * 1.86 * Math.PI; // -0.75 - 0.75
+			
+			if(degree1<0) direction1 = true;
+			
 			ctx.beginPath();
 				
-				ctx.arc(0, 0, 60, 0.75*Math.PI, degree1+0.75*Math.PI);
+				ctx.arc(0, 0, 60, 1.5*Math.PI, degree1+1.5*Math.PI, direction1);
 				
 				ctx.lineTo(0, 0);
 				
@@ -89,14 +99,16 @@
 				
 			ctx.stroke();
 			
+			document.getElementById('UsageValue1').insert = degree1;
+			
 			var canvasElem = document.getElementById('myCanvas2');
 			var ctx = canvasElem.getContext('2d');
 			var direction2 = false;
-			degree2 = 0.3*Math.PI; // -0.75 - 0.75
+			degree2 = degree2 * 0.74 * Math.PI; // -0.75 - 0.75
 			
-			if(degree2<0) direction3 = true;
-			if(degree2<-0.75) degree3 = -0.75;
-			if(degree2>0.75) degree3 = 0.75;
+			if(degree2<0) direction2 = true;
+			if(degree2<-0.75) degree2 = -0.75;
+			if(degree2>0.75) degree2 = 0.75;
 			
 			ctx.beginPath();
 				
@@ -109,11 +121,11 @@
 				ctx.fill();
 				
 			ctx.stroke();
-			
+			document.getElementById('UsageValue2').insert = degree2;
 			var canvasElem = document.getElementById('myCanvas3');
 			var ctx = canvasElem.getContext('2d');
 			var direction3 = false;
-			degree3 = 0.75*Math.PI; // -0.75 - 0.75
+			degree3 = degree3 * 0.75 * Math.PI; // -0.75 - 0.75
 			
 			if(degree3<0) direction3 = true;
 			if(degree3<-0.75) degree3 = -0.75;
@@ -130,14 +142,14 @@
 				ctx.fill();
 				
 			ctx.stroke();
-			
 			var canvasElem = document.getElementById('myCanvas4');
 			var ctx = canvasElem.getContext('2d');
-			degree4 = 1*Math.PI; // 0 - 1.5
+			degree4 = degree4 * Math.PI; // 0 - 1.5
+			
 			
 			ctx.beginPath();
 				
-				ctx.arc(0, 0, 60, 0.75*Math.PI, degree4+0.75*Math.PI);
+				ctx.arc(0, 0, 60, 1.5*Math.PI, degree4+1.5*Math.PI);
 				
 				ctx.lineTo(0, 0);
 				
@@ -152,11 +164,6 @@
 			CanvasEnd(document.getElementById('myCanvas3'));
 			CanvasEnd(document.getElementById('myCanvas4'));
 			
-			var UsageValue1 = document.getElementById('UsageValue1');
-			var UsageValue2 = document.getElementById('UsageValue2');
-			var UsageValue3 = document.getElementById('UsageValue3');
-			var UsageValue4 = document.getElementById('UsageValue4');
-			
 		}
 		
 		function AutoReset(){
@@ -165,10 +172,23 @@
 		
 		function OnLoad(){
 		
-			TranslateCanvas();
-			CavasChange();
+			//TranslateCanvas();
+			//A();
+			//BlancCanvas();
 			
-			AutoReset();
+			//CavasChange(canvas1 , canvas2, canvas3, canvas4);
+		}
+		
+		var bramka = true;
+		
+		function updateCanvas(){
+			
+			if(bramka){
+				TranslateCanvas();
+				bramka = false;
+			}
+			
+			CavasChange(canvas1 , canvas2, canvas3, canvas4);
 		}
 		
 		function Auto(){
@@ -184,14 +204,17 @@
 	
 </head>
 <body onload="OnLoad()">
-	<!-- <div id="testDiv1">0</div> -->
-	<!-- <div id="testDiv2">0</div> -->
 	<div id="Container">
 		
 		<div class="Divider"> <!-- Górna część -->
 			
 			<div id="Timer">
 				<span id="timer">TIMER 'beeb boob'</span> <!-- TIMER -->
+			</div>
+			
+			<div id="Rasberrypie">
+				<span>Rasberry status: </span>
+				<span id="rasp-status" style="color: purple;"> Disabled </span>
 			</div>
 			
 			<div id="RobotStatus">
@@ -206,41 +229,47 @@
 		<div class="Side"> <!-- Lewa strona  -->
 			
 			<div id="Camera">		<!-- Kamera -->
-				
+				<img style="-webkit-user-select: none;" src="http://frcvision.local:1181/stream.mjpg" width="640" height="480"></body>
 				
 				
 			</div>
 			
 	
 			
-			<div id="ButtonWykresy""> <!-- Przycisk do Wykresów -->
-				<form action="http://localhost:8888/wykresy.html" target="_blnack">
-					<input type="submit" value="wykresy" style="width: 71px; height: 150px;" />
-				</form>
-				<!-- <input type="button" value="Wykresy" style="width:71px; height: 326px;"/> -->
-				
+			<div id="ButtonWykresy"> <!-- Przycisk do Wykresów -->
+				<div  style="position: relative;">
+					<div  style="position: absolute; tex-algin: center; left: -10px; top: 100px; transform: rotate(90deg);">
+						<span>Wykresy</span>
+					</div>
+					<form action="http://localhost:8888/wykresy.html" target="_blnack" style="height:150px;">
+						<input type="submit" value="" style="width: 36px; height: 211px;" />
+					</form>
+					<!-- <input type="button" value="Wykresy" style="width:71px; height: 326px;"/> -->
+				</div>
 			</div>
 			
 			<div id="Usage">		<!-- Zużcie Baterii UPC RAM -->
 				
-				<div class="Usage" style="left: 0px; top: 60px;"><span id="UsageValue1">33%</span></div>
-				<div class="Usage" style="left: 0px; top: 80px;"><span>Po</span></div>
+				<div style="margin-top: 34px;">
 				
-				<div class="Usage" style="left: 150px; top: 60px;"><span id="UsageValue2">83%</span></div>
-				<div class="Usage" style="left: 150px; top: 80px;"><span>Laa-Laa</span></div>
+				<div class="Usage" style="left: 0px; top: 94px;"><span id="UsageValue1">0</span></div>
+				<div class="Usage" style="left: 0px; top: 114px;"><span>Elevator Motor Speed</span></div>
 				
-				<div class="Usage" style="left: 300px; top: 60px;"><span id="UsageValue3">50%</span></div>
-				<div class="Usage" style="left: 300px; top: 80px;"><span>Dipsy</span></div>
+				<div class="Usage" style="left: 150px; top: 94px;"><span id="UsageValue2">0</span></div>
+				<div class="Usage" style="left: 150px; top: 114px;"><span>Left Motor Speed</span></div>
 				
-				<div class="Usage" style="left: 450px; top: 60px;"><span id="UsageValue4">66%</span></div>
-				<div class="Usage" style="left: 450px; top: 80px;"><span>Tinky-Winky</span></div>
+				<div class="Usage" style="left: 300px; top: 94px;"><span id="UsageValue3">0</span></div>
+				<div class="Usage" style="left: 300px; top: 114px;"><span>Right Motor Speed</span></div>
+				
+				<div class="Usage" style="left: 450px; top: 94px;"><span id="UsageValue4">0</span></div>
+				<div class="Usage" style="left: 450px; top: 114px;"><span>Tinky-Winky</span></div>
 				
 				<canvas id="myCanvas1" width="150" height="150" style="float:left;">Canvas 1 doesn't respond</canvas>
 				<canvas id="myCanvas2" width="150" height="150" style="float:left;">Canvas 2 doesn't respond</canvas>
 				<canvas id="myCanvas3" width="150" height="150" style="float:left;">Canvas 3 doesn't respond</canvas>
 				<canvas id="myCanvas4" width="150" height="150" style="float:left;">Canvas 4 doesn't respond</canvas>
 				
-				
+				</div>
 				
 			</div>
 			
@@ -250,7 +279,7 @@
 			<div class="Divider"> <!-- Góra -->
 					
 				<div id="Gyro"> <!-- Żyroskop -->
-					<svg width="600" height="600" >
+					<svg width="200" height="200" >
 					<g transform="matrix(1 0 0 -1 100 100)" >
 						<rect x="0"  y="0"  width="4" height="30"  transform=" translate(-2 60) rotate(0)" />
 						<rect x="0"  y="0"  width="4" height="30"  transform=" translate(-2 60) rotate(-90 2 -60)" />
@@ -279,29 +308,32 @@
 					</g>
 					
 					
-					<text id="gyro-value" x="101" y="104" text-anchor="middle">90°</text>
+					<text id="gyro-value" x="101" y="104" text-anchor="middle">90</text>
 					
 					</svg>
 				</div>
 				<div id="Autonomus"> <!-- Tryb automatyki -->
 					
-					<div id="Auto">
+					<h1>Tape yaw</h1>
+					<h2 id="textyaw" ></h2>
+					
+					<!-- <div id="Auto"> -->
 						
-						<div id="AutoSpace" onchange="Auto(1)">
-							<select id="AutoSelect">
-								<option>Snake Path</option>
-								<option>KAMIKAZE Lest Rocket</option>
-								<option>Spin To win</option>
-							</select>
-						</div>
+						<!-- <div id="AutoSpace" onchange="Auto()"> -->
+							<!-- <select id="c"> -->
+								<!-- <option>Snake Path</option> -->
+								<!-- <option>KAMIKAZE Lest Rocket</option> -->
+								<!-- <option>Spin To win</option> -->
+							<!-- </select> -->
+						<!-- </div> -->
 						
 						<!-- <input type="button" style="width:75px; height:75px; margin-left:50px; margin-top:10px;" onclick="AutoReset()"/> -->
 						
-						<svg width=150 height=100>
-							<rect x=50 y=25 width=50 height=50 style="fill:purple;">
-						</svg>
+						<!-- <svg width=150 height=100> -->
+							<!-- <rect x=50 y=25 width=50 height=50 style="fill:purple;"> -->
+						<!-- </svg> -->
 						
-					</div>
+					<!-- </div> -->
 					
 				</div>
 			</div>
@@ -356,7 +388,7 @@
 					<rect x="100" y="176" width="13" height="20" />
 					
 					
-					<rect x="10" y="10" width="75" height="75" id="vision" style="fill: purple;" /> <!--Fioletowe, na znak nie podłączenia-->
+					<rect id="rasbIfSee" x="10" y="10" width="75" height="75" style="fill: purple;" /> <!--Fioletowe, na znak nie podłączenia-->
 					
 				</svg>
 				
